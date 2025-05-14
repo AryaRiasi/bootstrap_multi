@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile Accepted</title>
+    <link rel="stylesheet" href="form.css">
+</head>
+<body>
+    <div class="form-container">
+        <h1>Profile Accepted!</h1>
+        <div id="profileData"></div>
+        <p>Thank you for submitting your profile.</p>
+        <button onclick="window.location.href='user.html'">Create Another Profile</button>
+    </div>
+    <script>
+        // Display submitted data
+        const profileData = JSON.parse(localStorage.getItem('profileData'));
+        if (profileData) {
+            document.getElementById('profileData').innerHTML = `
+                <p><strong>Name:</strong> ${profileData.fullName}</p>
+                <p><strong>Email:</strong> ${profileData.email}</p>
+                <p><strong>Age:</strong> ${profileData.age}</p>
+                <p><strong>Country:</strong> ${profileData.country}</p>
+            `;
+        }
+    </script>
+</body>
+</html>
